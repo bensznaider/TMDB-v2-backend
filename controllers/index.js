@@ -1,6 +1,6 @@
-const usersController = require("./usersController");
-const moviesController = require("./moviesController");
-const favoritesController = require("./favoritesController");
+const usersController = require("./users");
+const moviesController = require("./movies");
+const favoritesController = require("./favorites");
 
 module.exports = {
   usersController,

@@ -1,6 +1,6 @@
 const express = require("express")
-const config = require("./config/index.js")
 const cors = require("cors")
+const morgan = require("morgan");
 const routes = require("./routes/index.js")
 
 const app = express()
@@ -13,7 +13,9 @@ app.use(
     credentials: true,
 }))
 app.use(express.json())
-//app.use("/api", routes)
+app.use(morgan("dev"));
+
+app.use("/api", routes)
 
 const listener = app.listen(process.env.PORT || 8080, () => {
   console.log("App listening on port " + listener.address().port)

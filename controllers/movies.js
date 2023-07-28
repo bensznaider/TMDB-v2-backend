@@ -1,11 +1,11 @@
 const axios = require("axios");
 require('dotenv').config();
 
-/* const findById = async (req, res) => {
+const movieDetailsById = async (req, res) => {
   try {
     const options = {
       method: "GET",
-      url: `https://api.themoviedb.org/3/movie/${req.params.movieId}?language=en-US`,
+      url: `https://api.themoviedb.org/3/movie/${req.params.id}`,
       headers: {
         accept: "application/json",
         Authorization: process.env.API_KEY,
@@ -16,7 +16,7 @@ require('dotenv').config();
   } catch (error) {
     res.status(404).send(error);
   }
-}; */
+};
 
 const topRated = async (req, res) => {
   const options = {
@@ -49,7 +49,7 @@ const nowPlaying = async (req, res) => {
 };
 
 module.exports = {
-  //findById,
+  movieDetailsById,
   topRated,
   nowPlaying,
 };

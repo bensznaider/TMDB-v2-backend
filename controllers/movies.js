@@ -3,7 +3,7 @@ require('dotenv').config();
 
 const movieDetailsById = async (req, res) => {
   try {
-    const options = {
+    const firstReq = {
       method: "GET",
       url: `https://api.themoviedb.org/3/movie/${req.params.id}`,
       headers: {
@@ -11,8 +11,19 @@ const movieDetailsById = async (req, res) => {
         Authorization: process.env.API_KEY,
       },
     };
-    const response = await axios.request(options);
-    res.send(response.data);
+    const secondReq = {
+      method: "GET",
+      url: `https://api.themoviedb.org/3/movie/${req.params.id}/credits`,
+      headers: {
+        accept: "application/json",
+        Authorization: process.env.API_KEY,
+      },
+    };
+    const generalData = await axios.request(firstReq);
+    const cast = await axios.request(secondReq);
+    console.log(cast.data.crew)
+    const answer = {data: generalData.data, credits: cast.data}
+    res.send(answer);
   } catch (error) {
     res.status(404).send(error);
   }

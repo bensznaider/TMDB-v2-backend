@@ -29,6 +29,22 @@ const movieDetailsById = async (req, res) => {
   }
 };
 
+const moviesByString = async (req, res) => {
+  const movie = req.query.movie
+  const options = {
+    method: "GET",
+    url: `https://api.themoviedb.org/3/search/movie?query=${movie}`,
+    headers: {
+      accept: "application/json",
+      Authorization: process.env.API_KEY,
+    },
+  };
+  axios
+    .request(options)
+    .then((response) => res.send(response.data))
+    .catch((err) => console.error(err));
+};
+
 const topRated = async (req, res) => {
   const options = {
     method: "GET",
@@ -61,6 +77,7 @@ const nowPlaying = async (req, res) => {
 
 module.exports = {
   movieDetailsById,
+  moviesByString,
   topRated,
   nowPlaying,
 };

@@ -4,6 +4,14 @@ const { Users } = require("../db/models/index.js");
 
 const signup = async (req, res) => {
   try {
+    const possibleUser = await Users.findOne({where: {username: req.body.username}})
+    if (possibleUser) {
+    res.status(409).send(`Username "${req.body.username}" is already in use.`)  
+    }
+    const possibleEmail = await Users.findOne({where: {email: req.body.email}})
+    if (possibleEmail) {
+      res.status(409).send(`A user registered with ${req.body.email} already exists.`)  
+    }
     await Users.create(req.body);
     res.sendStatus(200);
   } catch (error) {

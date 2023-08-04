@@ -3,10 +3,9 @@ const db = require("../index.js");
 const bcrypt = require("bcrypt");
 
 class Users extends Sequelize.Model {
- /* CHEQUEAR PARA QUÉ SIRVE ESTE MÉTODO DE INSTANCIA!!! A PRIORI NO PARECE TENER UTILIDAD
   hash(unhashedPass, salt) {
     return bcrypt.hash(unhashedPass, salt);
-  }; */
+  };
   validatePassword = function (password) {
     return bcrypt
       .hash(password, this.salt)

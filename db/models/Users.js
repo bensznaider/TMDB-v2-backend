@@ -15,10 +15,6 @@ class Users extends Sequelize.Model {
 
 Users.init(
   {
-    username: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
     email: {
       type: Sequelize.STRING,
       allowNull: false,

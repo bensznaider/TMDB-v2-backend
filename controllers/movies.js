@@ -21,7 +21,6 @@ const movieDetailsById = async (req, res) => {
     };
     const generalData = await axios.request(firstReq);
     const cast = await axios.request(secondReq);
-    console.log(cast.data.crew)
     const answer = {data: generalData.data, credits: cast.data}
     res.send(answer);
   } catch (error) {

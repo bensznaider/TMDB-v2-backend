@@ -30,21 +30,12 @@ const login = async (req, res) => {
       email: user.dataValues.email,
     };
     const token = generateToken(payload);
-    const response = {user: user.dataValues.email, token: token}
+    const response = {userId: user.dataValues.id, token: token}
     res.send(response);
   } catch (error) {
     res.status(404).send(error);
   }
 };
-
-// const secret = async (req, res) => {
-//   try {
-//     await validateAuth(req, res);
-//     res.send(req.user);
-//   } catch (error) {
-//     res.status(404).send(error);
-//   }
-// };
 
 const me = async (req, res) => {
   try {
@@ -61,11 +52,5 @@ const me = async (req, res) => {
   }
 };
 
-const logout = (req, res) => {
-  localStorage.removeItem("token");
-  res.sendStatus(204);
-};
 
-module.exports = { signup, login, 
-  //secret,
-   me, logout };
+module.exports = { signup, login, me };

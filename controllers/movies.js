@@ -47,7 +47,7 @@ const moviesByString = async (req, res) => {
 const topRated = async (req, res) => {
   const options = {
     method: "GET",
-    url: "https://api.themoviedb.org/3/movie/top_rated",
+    url: `https://api.themoviedb.org/3/movie/top_rated?page=${req.params.page}`,
     headers: {
       accept: "application/json",
       Authorization: process.env.API_KEY,
@@ -62,7 +62,7 @@ const topRated = async (req, res) => {
 const nowPlaying = async (req, res) => {
   const options = {
     method: "GET",
-    url: "https://api.themoviedb.org/3/movie/now_playing",
+    url: `https://api.themoviedb.org/3/movie/now_playing?page=${req.params.page}`,
     headers: {
       accept: "application/json",
       Authorization: process.env.API_KEY,

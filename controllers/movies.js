@@ -29,10 +29,9 @@ const movieDetailsById = async (req, res) => {
 };
 
 const moviesByString = async (req, res) => {
-  const movie = req.query.movie
   const options = {
     method: "GET",
-    url: `https://api.themoviedb.org/3/search/movie?query=${movie}`,
+    url: `https://api.themoviedb.org/3/search/movie?query=${req.query.movie}&page=${req.query.page}`,
     headers: {
       accept: "application/json",
       Authorization: process.env.API_KEY,

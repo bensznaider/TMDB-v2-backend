@@ -15,6 +15,7 @@ const addFavorite = async (req, res) => {
         userId: req.body.userId,
         year: req.body.year,
         posterURL: req.body.posterURL,
+        voteAverage: req.body.voteAverage,
       });
       res.status(201).send(favorite);
     } else if (currentFav) {

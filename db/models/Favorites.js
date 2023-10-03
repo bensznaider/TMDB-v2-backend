@@ -20,6 +20,9 @@ Favorites.init(
       type: Sequelize.STRING,
       allowNull: false,
     },
+    voteAverage: {
+      type: Sequelize.DECIMAL,
+    }
   },
   { sequelize: db, modelName: "favorites" }
 );

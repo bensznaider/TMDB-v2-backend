@@ -8,8 +8,10 @@ const app = express()
 
 app.use(
   cors({
-    //origin: URL FROM DEPLOY SERVER
-    origin: "http://localhost:5173",
+    //URL FROM DEPLOY SERVER
+    origin: "tmdb-v2-frontend.vercel.app",
+    //LOCALHOST URL
+    //origin: "http://localhost:5173",
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
 }))

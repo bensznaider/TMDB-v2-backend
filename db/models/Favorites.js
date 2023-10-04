@@ -18,7 +18,6 @@ Favorites.init(
     },
     posterURL: {
       type: Sequelize.STRING,
-      allowNull: false,
     },
     voteAverage: {
       type: Sequelize.DECIMAL,

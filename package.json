@@ -1,17 +1,21 @@
 {
   "name": "tmdb-v2-backend",
-  "description": "TMDB version 2 backend",
-  "version": "1.0.0",
+  "description": "TMDB",
+  "version": "2.0.0",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
+  },
+  "engines": {
+    "node": "16.20.0", 
+    "npm": "8.19.4"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bensznaider/TMDB-v2-backend.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "bensznaider",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/bensznaider/TMDB-v2-backend/issues"

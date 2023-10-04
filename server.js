@@ -19,7 +19,7 @@ app.use(morgan("dev"));
 app.use("/api", routes)
 
 db.sync({force:false}).then(function () {
-  const listener = app.listen(process.env.PORT || 8080, () => {
+  const listener = app.listen(5432, () => {
     console.log("App listening on port " + listener.address().port)
   })
 }).catch(console.error);
